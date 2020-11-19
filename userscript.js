@@ -2,18 +2,21 @@
 // @name                GitHub Internationalization
 // @name:zh-CN          GitHub汉化插件
 // @name:ja             GitHub日本語
+// @name:nl                GitHub-vertaling
 // @namespace           https://github.com/k1995/github-i18n-plugin/
 // @version             0.9
 // @description         Translate GitHub.com
 // @description:zh      GitHub汉化插件，包含人机翻译
 // @description:zh-CN   GitHub汉化插件，包含人机翻译
 // @description:ja      GitHub日本語プラグイン
+// @description:nl         Vertaal GitHub.com
 // @author              k1995
 // @match               https://github.com/*
 // @grant               GM_xmlhttpRequest
 // @grant               GM_getResourceText
 // @resource            zh-CN https://www.githubs.cn/raw-githubusercontent/k1995/github-i18n-plugin/master/locales/zh-CN.json?v=20201119
 // @resource            ja https://raw.githubusercontent.com/k1995/github-i18n-plugin/master/locales/ja.json
+// @resource            nl https://raw.githubusercontent.com/Vistaus/github-i18n-plugin/master/locales/nl-NL.json
 // @require             https://cdn.bootcdn.net/ajax/libs/timeago.js/4.0.2/timeago.full.min.js
 // @require             https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js
 // ==/UserScript==
@@ -33,6 +36,10 @@
   function getLocales(lang) {
     if(lang.startsWith("zh")) { // zh zh-TW --> zh-CN
       lang = "zh-CN";
+    }
+  function getLocales(lang) {
+    if(lang.startsWith("nl")) {
+      lang = "nl-NL";
     }
     if(SUPPORT_LANG.includes(lang)) {
       return JSON.parse(GM_getResourceText(lang));
